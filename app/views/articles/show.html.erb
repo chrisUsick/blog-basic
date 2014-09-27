@@ -10,9 +10,22 @@
 <h2>Comments</h2>
 <%= render @article.comments %>
 
+<h2>Tags</h2>
+<p>
+	<% @article.tags.each_with_index do |t, i| %>
+		<% if (i != @article.tags.length - 1) %>	
+			<span><%=t.name%>, </span>
+		<% else %>
+			<span><%= t.name%></span>
+		<% end %>
+
+	<% end %>
+</p>
 <h2>Add a Comment</h2>
 <%= render 'comments/form' %>
-  
+
+<h2>Add a tag</h2>
+<%= render 'tags/form' %>
 
 <%= link_to "back", articles_path %>
 | <%= link_to 'Edit', edit_article_path(@article) %>

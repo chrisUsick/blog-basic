@@ -4,12 +4,16 @@
   <tr>
     <th>Title</th>
     <th>Text</th>
+    <th># of comments</th>
+    <th># of tags</th>
   </tr>
  
   <% @articles.each do |article| %>
     <tr>
       <td><%= article.title %></td>
       <td><%= article.text %></td>
+      <td><%= article.comments.length %></td>
+      <td><%= article.tags.length %></td>
       <td><%= link_to "Show", article_path(article)%></td>
       <td><%= link_to 'Edit', edit_article_path(article) %></td>
       <td><%= link_to 'Destroy', article_path(article), method: :delete, data: {confirm: 'are you sure?'} %></td>
